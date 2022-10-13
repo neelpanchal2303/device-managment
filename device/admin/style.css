@@ -1,0 +1,165 @@
+th{
+    /* background-color: rgba(100, 100, 100, 100); */
+    color:white;
+    background-color: rgba(44, 56, 69, 1);
+}
+#form{
+    width: 94%;
+    border: 0px;
+    background-color: rgb(89, 126, 161);
+}
+
+#form1{
+    width: 100%;
+    border: 0px;
+    background-color: rgb(89, 126, 161);
+}
+
+ body{
+    background-color: rgb(48, 67, 85);
+ }
+ #body{
+    background-color: rgb(48, 67, 85);
+ }
+
+
+
+#logout{
+    float: right;
+    color: white;
+    background-color:rgb(165, 24, 52);
+    border-radius: 5px;
+    
+}
+
+.submitbtn{
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0px;
+    /* margin-right: 3%; */
+    float: right;
+   
+    
+    
+}
+
+.searcharea{
+    width: 30%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0px;
+    margin-left: 70%;
+    background-color:rgb(151, 190, 226);
+
+    
+}
+
+.up{
+    color: white;
+}
+
+#paglink{
+    color:black;
+
+}
+
+#youhave{
+   
+    border: 0px;
+    background-color:rgb(199, 228, 255);
+}
+p{
+    font-size:large;
+}
+#usersname{
+    color: red;
+}
+
+.active{
+    color: black;
+    background-color: rgb(48, 67, 85);
+    border-radius: 10px;
+}
+
+#active{
+    color: red;
+    border-radius: 10px;
+}
+
+/* ul{
+    text-decoration: none;
+} */
+
+ li a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+button{
+    border: none;
+}
+h4{
+    float: left;
+}
+
+#welcome{
+    color:navy
+    
+}
+
+tr:nth-child(odd){
+    /* background-color:rgba(170, 170, 170, 30) ; */
+    background-color:rgba(58, 73, 89, 1);
+}
+
+tr:nth-child(even){
+    /* background-color:rgba(170, 170, 170, 30) ; */
+    background-color:rgba(67, 90, 112, 1);
+}
+
+#trhover:hover {
+    transition: 600ms;
+    transition-delay: 30ms;
+    
+    
+    color: black;
+    /* background-color:rgba(64, 111, 156, 1);} */
+    background-color:rgb(151, 190, 226);
+    
+}
+
+.table{
+    color: white;
+    width: 100%;
+}
+
+i{
+    color:beige;
+}
+
+#welcome{
+    color: rgba(44, 56, 69, 1);
+    font-size: xx-large;
+}
+
+h4{
+    color: rgba(44, 56, 69, 1);
+}
+
+
+
+#edit:hover{
+    /* background-color: rgb(33, 151, 53); */
+    color: darkgreen;
+    transition: 300ms;
+}
+
+#delete:hover{
+    color: crimson;
+    transition: 300ms;
+}
