@@ -1,4 +1,16 @@
+<?php
 
+session_start();
+if (isset($_SESSION['admin_role'])){
+    header("Location:../admin/device.php");
+  }
+  
+//   if (!isset($_SESSION['email'])){
+//     header("Location: employee_login.php");
+//   }
+  
+
+?>
 
 
 
@@ -43,7 +55,7 @@
 </head>
 <body>
     <?php
-    session_start();
+  
     require('database.php');
     
     
@@ -55,13 +67,15 @@
         $password =($_POST['password']);
         
         // user database maa che k nai check
-        $query    = "SELECT * FROM `user` WHERE email='$email' 
-                     AND password='" .md5 ($password) . "'";
+        $query    = "SELECT * FROM user WHERE email='$email' 
+                     AND password='" .md5 ($password) . "' and role = 'employee'";
         $result = mysqli_query($conn, $query) or die(mysqli_connect_error());
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             
-            $_SESSION['employee_email'] = $email;
+            // $_SESSION['employee_email'] = $email;
+            $_SESSION['email'] = $email;
+            $_SESSION['employee_role'] = 'employee';
             
            
             
@@ -75,14 +89,6 @@
         }
     } else {
 ?>
-
-<!-- <form  method="post" name="login" >
-        <h1 class="login-title justify-content-center">Login</h1><br>
-        <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/><br><br>
-        <input type="password" class="login-input" name="password" placeholder="Password"/>
-        <input type="submit" value="Login" name="submit" class="login-button"/>
-        <p class="link"><a href="registration.php">New Registration</a></p>
-  </form> -->
  
   <div style="margin-top:10%;">
   <h1 class="d-flex justify-content-center text-light">Login</h1>

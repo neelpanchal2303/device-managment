@@ -1,3 +1,27 @@
+<?php
+
+
+require('database.php');
+if(isset($_POST['hidden_email'])){
+    $change_password = $_POST['hidden_email'];
+    $reset_password = $_POST['new_password'];
+
+    $query    = "UPDATE user SET password = '".md5($reset_password)."' where email='$change_password'";
+                     
+    mysqli_query($conn, $query);
+   // if ($result){
+   echo "<script>window.location.href='login.php'</script>";
+
+
+   }
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,12 +66,11 @@
    
 ?>
 
-
  
   <div style="margin-top:10%;">
-  <h1 class="d-flex justify-content-center text-light">Login</h1>
+  <h1 class="d-flex justify-content-center text-light">Reset Password</h1>
   </div>
-  <form  method="post" name="login" id="forgot" action="email.php">
+  <form  method="post" name="login" id="forgot" action="admin_reset.php">
   <div class="container mt-3">
     <div class="row d-flex justify-content-center align-self-center">
     <div class="col-md-9 col-lg-7">
@@ -55,12 +78,15 @@
             
                 <div class="form-data" v-if="!submitted">
                 
-                    <div class="forms-inputs mb-4">  <input name="email" id="email" type="text" class="form-control" placeholder="enter username" >
+                    <div class="forms-inputs mb-4">  <input name="new_password" id="new_password" type="password" class="form-control" placeholder="enter new password" maxlength="10">
                         <div class="invalid-feedback">A valid email is required!</div>
                     </div>
+
+                    <input type="hidden" name="hidden_email" value="<?php echo $_GET['email']?>" >
+
                     <p class="error"></p>
                     
-                    <div class="mb-3"> <button name="emailsubmit" type="submit" class="btn btn-dark w-100" >Login</button> </div>
+                    <div class="mb-3"> <button name="emailsubmit" type="submit" class="btn btn-dark w-100" >submit</button> </div>
                 </div>
                 
             </div>
@@ -70,53 +96,7 @@
 </form>
   
 
-<script>
-jQuery('#forgot').validate({
 
-rules:{
-
-
-
-
-email:{
-  required:true,
-  remote:{
-      url:"report1.php",
-      type:"post",
-      async: false,
-      data:{
-       email: function() {
-            return  $('#email').val();
-          }
-    }
-
-            },
-},
-
-
-
-
-},
-messages:{
-    
-    email:{
-      remote:"Email is not registered"
-    },
-    
-   
-   
-  
-  
-    
-      },
-
-
-
-
-
-});
-
-</script>
     
     
 </body>

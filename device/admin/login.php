@@ -1,6 +1,16 @@
 
 
+<?php
+session_start();
+if (isset($_SESSION['admin_role'])){
+    header("Location: mainpage1.php");
+  }
 
+  if (isset($_SESSION['employee_role'])){
+    header("Location: ../employee/employee_device.php");
+  }
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +44,8 @@
     text-decoration: none;
     color: white;
  }
-       
+
+  
    
         
     </style>
@@ -43,7 +54,7 @@
 </head>
 <body>
     <?php
-    session_start();
+    // session_start();
     require('database.php');
     
     
@@ -61,7 +72,9 @@
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             
-            $_SESSION['admin_email'] = $email;
+            // $_SESSION['admin_email'] = $email;
+            $_SESSION['email'] = $email;
+            $_SESSION['admin_role'] = 'admin';
             
            
             
@@ -76,13 +89,7 @@
     } else {
 ?>
 
-<!-- <form  method="post" name="login" >
-        <h1 class="login-title justify-content-center">Login</h1><br>
-        <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/><br><br>
-        <input type="password" class="login-input" name="password" placeholder="Password"/>
-        <input type="submit" value="Login" name="submit" class="login-button"/>
-        <p class="link"><a href="registration.php">New Registration</a></p>
-  </form> -->
+
  
   <div style="margin-top:10%;">
   <h1 class="d-flex justify-content-center text-light">Login</h1>
@@ -95,7 +102,7 @@
             
                 <div class="form-data" v-if="!submitted">
                 
-                    <div class="forms-inputs mb-4">  <input name="email" type="text" class="form-control" placeholder="enter username" >
+                    <div class="forms-inputs mb-4">  <input name="email" type="text" class="form-control" placeholder="enter username">
                         <div class="invalid-feedback">A valid email is required!</div>
                     </div>
                     <div class="forms-inputs mb-4">  <input name="password" class="form-control" type="password" placeholder="enter password" maxlength="10" >
@@ -103,9 +110,9 @@
                     </div>
                     <div class="mb-3"> <button name="submit"  class="btn btn-dark w-100" >Login</button> </div>
                 </div>
-                <div class="success-data" v-else>
-                    <div class="text-center d-flex flex-column">  <span class="text-center fs-1"><a>Create new account &nbsp</a><a href="registration.php">Sign Up :)</a><a>&nbsp;</a></span> </div>
-                </div>
+                <div>
+                        <a href="admin_forgot_password.php">Forgot Password</a>
+                    </div>
             </div>
         </div>
     </div>

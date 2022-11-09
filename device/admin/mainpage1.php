@@ -61,7 +61,7 @@
 
 
       <div class="container mt-5 rounded" id="form">
-        <i class="h4">Hey, <?php echo "<b><i id='welcome'>". $_SESSION['admin_email']."</i></b>"?></i><br><br>
+        <i class="h4">Hey, <?php echo "<b><i id='welcome'>". $_SESSION['email']."</i></b>"?></i><br><br>
         <div class="d-flex">
         <br><i class="h4">You'r welcomed by <b> <i id="welcome"> Ͷeel Panchal.</i></i></b>
         

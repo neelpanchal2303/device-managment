@@ -4,9 +4,11 @@ th{
     background-color: rgba(44, 56, 69, 1);
 }
 #form{
-    width: 94%;
+    width: 83%;
     border: 0px;
     background-color: rgb(89, 126, 161);
+    
+    float: right;
 }
 
 #form1{
@@ -104,11 +106,11 @@ button{
     border: none;
 }
 h4{
-    float: left;
+    float: right;
 }
 
 #welcome{
-    color:navy
+    color:beige
     
 }
 
@@ -118,6 +120,16 @@ tr:nth-child(odd){
 }
 
 tr:nth-child(even){
+    /* background-color:rgba(170, 170, 170, 30) ; */
+    background-color:rgba(67, 90, 112, 1);
+}
+
+#tr:nth-child(odd){
+    /* background-color:rgba(170, 170, 170, 30) ; */
+    background-color:rgba(58, 73, 89, 1);
+}
+
+#tr:nth-child(even){
     /* background-color:rgba(170, 170, 170, 30) ; */
     background-color:rgba(67, 90, 112, 1);
 }

@@ -2,8 +2,6 @@
 if(isset($_POST['email'])){
 
     $email = $_POST['email'];
-
-
     $to = $email;
     $subject = "Forgot your password from here";
     $html = '<!DOCTYPE html>
@@ -29,7 +27,7 @@ if(isset($_POST['email'])){
             <h1 style=" display:flex; justify-content:center; color: rgb(119, 153, 185);"><u>You have Requested for Forgot Password</u></h1><br>
             <h3 style=" display:flex; justify-content:center; color:rgb(151, 190, 226); "><i>hii we are from Devstree & you have requested for reset password </p><br>
             <h3 style=" display:flex; justify-content:center; color:rgb(151, 190, 226);">click on RESET PASSWORD to reset your password</p>
-            <button style=" margin-left:35%; background-color:rgb(151, 190, 226);; width:30%; height:50px; border-radius:10px; " ><a href="http://localhost/test/device/employee/reset.php?email='.$email.'">Reset Password</a></button>
+            <button style=" margin-left:35%; background-color:rgb(151, 190, 226);; width:30%; height:50px; border-radius:10px; " ><a href="http://localhost/test/device/admin/admin_reset.php?email='.$email.'">Reset Password</a></button>
             </div>
     </div>
     </body>
@@ -40,7 +38,7 @@ if(isset($_POST['email'])){
     $send = mail($to,$subject,$html,$headers);
 
     if($send){
-        header("Location:employee_login.php");
+        header("Location:login.php");
     }
     else{
         echo "server not available";

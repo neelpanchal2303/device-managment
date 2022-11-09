@@ -3,7 +3,7 @@
  
 
 
- //fetch.php  
+
  $connect = mysqli_connect("localhost", "root", "", "device");  
  if(isset($_POST["resultid"]))  
  {  
