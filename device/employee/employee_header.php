@@ -1,12 +1,17 @@
 <?php
 session_start();
-if (!isset($_SESSION['employee_email'])){
+
+if (isset($_SESSION['admin_role'])){
+  header("Location:../admin/device.php");
+}
+
+if (!isset($_SESSION['email'])){
   header("Location: employee_login.php");
 }
 
+
+
 ?>
-
-
 
 <head>
     <meta charset="UTF-8">
@@ -53,19 +58,43 @@ if (!isset($_SESSION['employee_email'])){
  
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      #welcome{
+        color: beige;
+      }
+    </style>
 </head>
 <div >
     <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #292b2c;" >
         <div class="container-fluid" >
-          <a class="navbar-brand  " href="#" id="nav"><i class="h2"> Neel Panchal</i></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="collapse navbar-collapse justify-content-center  " id="navbarNav" >
+          <a class="navbar-brand  " href="#" id="nav"><i class="h2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"> Neel Panchal</i></a>
+          
+        <div>
+        <i class="h4 " style="color: rgb(89, 126, 161);">Hey, <?php echo "<b><i id='welcome' style='color: beige;' >". $_SESSION['email']."</i></b>"?></i><br><br>
+        </div>
+    </nav>
+</div>
+
+
+<div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="width:200px ;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-light" id="offcanvasWithBothOptionsLabel">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" style="padding-left:10% ;">
+   
             <ul class="navbar-nav ms-auto ">
             
-          
-              
+              <li class="nav-item me-1">
+                <a class="nav-link  h" aria-current="page" href="employee_device.php">Device Table</a>
+              </li>
+              <li class="nav-item me-1">
+                <a class="nav-link " href="requested_table_device.php">Requested Devices</a>
+              </li>
+              <li class="nav-item me-1">
+                <a class="nav-link " href="track_record.php">Histroy Of Devices</a>
+              </li>
               <li>
                 <form action="employee_logoutpage.php">
                   <button  class="btn btn-danger btn pull-right mt-2" onclick="logoutpage.php" >Logout</a></button>
@@ -73,9 +102,6 @@ if (!isset($_SESSION['employee_email'])){
               </li>
               
             </ul>
-        </div>
-    </nav>
+        
+  </div>
 </div>
-
-<!--  -->
-

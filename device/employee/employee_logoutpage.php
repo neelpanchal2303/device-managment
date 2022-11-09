@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    unset ($_SESSION['employee_email']);
+    session_destroy();
         
         header("Location: employee_login.php");
         // 

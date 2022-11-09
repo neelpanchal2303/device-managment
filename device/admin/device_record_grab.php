@@ -1,12 +1,13 @@
 <?php
-
+// $table = "device_record";
 
 // class drag{
+    
 //     public function dragdata($table){
 //         $connect = mysqli_connect("localhost", "root", "", "device");
 //         // $sortquery = "SELECT * FROM $table" ;
-//         if($table == 'device'){
-//             $sortquery = "SELECT * FROM $table WHERE status= 'Available'" ;
+//         if($table == 'device_record'){
+//             $sortquery = "SELECT * FROM $table "  ;
 
 //         }
 //         else{
