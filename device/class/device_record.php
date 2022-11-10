@@ -64,9 +64,12 @@ class permission{
     // }
     // / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
     public function drag_data_history(){
+        $_SESSION['device_record_colunm'] = '' ;
+        $_SESSION['device_record_sort'] = '';
+        //$_SESSION['dropdown_search'] = '';
         $connect = mysqli_connect("localhost", "root", "", "device");
         $_SESSION['search'] = '';
-        //$_SESSION['dropdown_search'] = '';
+       
         if(isset($_GET['valueToSearch'])){
             $_SESSION['search'] = $_GET["valueToSearch"];
         }
@@ -76,6 +79,8 @@ class permission{
         $start_from = $_SESSION['start_from'];
 
         if(isset($_GET['sort'])){
+            // $_SESSION['device_record_colunm'] = '' ;
+            // $_SESSION['device_record_sort'] = '';
             $sort = $_GET['sort'];
             $_SESSION['device_record_sort'] = $sort;
             $colunm = $_GET['colunm'];
@@ -89,7 +94,7 @@ class permission{
            $sortquery = "SELECT user.name,device_record.id,device.d_name,device_record.device_id,device_record.request_time,device_record.assigned_time,device_record.return_time,device_record.reject_time,device_record.status,device_record.employee_id FROM device_record inner join device on device.id=device_record.device_id inner join user on user.id=device_record.employee_id WHERE name LIKE  '%".$_SESSION['dropdown_search']."%' AND CONCAT(`d_name`,`name`,`request_time`,`assigned_time`,`return_time`,`reject_time`) LIKE '%".$_SESSION['search']."%'  LIMIT $start_from,$limit" ;
         }
         else{
-         
+            //$_SESSION['dropdown_search'] = '';
                 // $sortquery = "SELECT user.name, user.id, device.id, device.d_name, device_record.device_id, device_record.request_time,device_record.assigned_time,device_record.return_time,device_record.reject_time,device_record.status,device_record.employee_id FROM device_record inner join device on device.id=device_record.device_id inner join user on user.id=device_record.employee_id WHERE  name LIKE '%".$_SESSION['dropdown_search']."%' CONCAT(`d_name`,`name`,`request_time`,`assigned_time`,`return_time`,`reject_time`) LIKE '%".$_SESSION['search']."%' LIMIT $start_from, $limit" ;
             $sortquery = "SELECT user.name, device_record.id, device.d_name, device_record.device_id, device_record.request_time,device_record.assigned_time,device_record.return_time,device_record.reject_time,device_record.status,device_record.employee_id FROM device_record inner join device on device.id=device_record.device_id inner join user on user.id=device_record.employee_id WHERE name LIKE  '%".$_SESSION['dropdown_search']."%' AND CONCAT(`d_name`,`name`,`request_time`,`assigned_time`,`return_time`,`reject_time`) LIKE '%".$_SESSION['search']."%'  LIMIT $start_from, $limit";
         }
@@ -102,8 +107,9 @@ class permission{
     public function grant($id,$status){
         $conn = mysqli_connect("localhost","root","","device");
         // echo 'hello'; 
-        echo $id; 
-        echo $status;
+        // echo $id; 
+        // echo $status;
+        
         if($status=="assigned"){
             $query_update_status_device1 = "UPDATE device SET status = 'assigned' WHERE id = ANY(SELECT device_id from device_record WHERE id='$id')";
             $query_update_assigned_time = "UPDATE device_record SET status = 'assigned',assigned_time = now() where id='$id' ";
@@ -114,6 +120,7 @@ class permission{
             $query_update_status_device1 = "UPDATE device SET status = 'Available' WHERE id = ANY(SELECT device_id from device_record WHERE id='$id')";
             $query_update_assigned_time = "UPDATE device_record SET status = 'rejected',reject_time = now() where id='$id' ";
         }
+
         if($status=="returned"){
             $query_update_status_device1 = "UPDATE device SET status = 'Available' WHERE id = ANY(SELECT device_id from device_record WHERE id='$id')";
             $query_update_assigned_time = "UPDATE device_record SET status = 'returned',return_time = now() where id='$id' ";

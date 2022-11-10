@@ -4,6 +4,8 @@
 class Device{
     
     public function dragdata(){
+        $_SESSION['colunm']='';
+            $_SESSION['sort']='' ;
 
 
 $limit = $_SESSION['limit'];
