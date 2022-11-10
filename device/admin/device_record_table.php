@@ -334,7 +334,7 @@ else{
       var recordid = $(this).attr("id");
       console.log(recordid);
       var value = $(this).val(); 
-      console.log(value);
+      // console.log(value);
       var confirmalert = confirm("Are you sure?");
       if (confirmalert == true) { 
         $.ajax({  

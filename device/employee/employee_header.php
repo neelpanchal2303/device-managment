@@ -68,16 +68,22 @@ if (!isset($_SESSION['email'])){
 <div >
     <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #292b2c;" >
         <div class="container-fluid" >
-          <a class="navbar-brand  " href="#" id="nav"><i class="h2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"> Neel Panchal</i></a>
+          <a class="navbar-brand  " href="#" id="nav"><i id="auto_button" class="h2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"> Neel Panchal</i></a>
           
         <div>
         <i class="h4 " style="color: rgb(89, 126, 161);">Hey, <?php echo "<b><i id='welcome' style='color: beige;' >". $_SESSION['email']."</i></b>"?></i><br><br>
         </div>
     </nav>
 </div>
+<script>
+$(document).ready(function(){
+  $('#auto_button').trigger('click');
+})
+
+</script>
 
 
-<div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="width:200px ;">
+<div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="width:230px ;">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title text-light" id="offcanvasWithBothOptionsLabel">Menu</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

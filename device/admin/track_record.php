@@ -139,7 +139,7 @@ $search_result2 = $deviceobj -> drag_data_history('device');
 <div class="text-center d-flex justify-content-end">
     <form  class="form-inline d-flex bg-defult "  action="track_record.php" method="get">
     <div class="text-start align-content-start me-5" style="width: 15%;padding-top:1%;float:left;">
-
+<?php $_SESSION['dropdown_search'] = '';?>
 <select name="user_drop" class="user_drop" id="user_drop" class="form-select rounded mt-1" require style="height:70% ; ">
       <option value=""  >select user to sort</option>
       <option value="<?php echo $_SESSION['dropdown_search']?><?php if ($_SESSION['dropdown_search'] == ''){echo "all";} else{ echo $_SESSION['dropdown_search']; }?>" >All</option>

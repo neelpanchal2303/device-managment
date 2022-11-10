@@ -4,9 +4,10 @@ th{
     background-color: rgba(44, 56, 69, 1);
 }
 #form{
-    width: 94%;
+    width: 83%;
     border: 0px;
     background-color: rgb(89, 126, 161);
+    float: right;
 }
 
 #form1{

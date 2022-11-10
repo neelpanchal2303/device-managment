@@ -145,7 +145,7 @@
 <!-- --------------------------------------- -->
 
 
-<div class="container-fluid mt-5 rounded ms-5 me-2 " id="form"  ><br>
+<div class="container-fluid mt-5 rounded ms-5 me-5 " id="form"  ><br>
 <div class="text-center d-flex justify-content-end">
     <form  class="form-inline d-flex bg-defult "  action="employee_device.php" method="get">
         <?php

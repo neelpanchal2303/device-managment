@@ -116,7 +116,7 @@
 
 <!--  -->
 
-<div class="container-fluid mt-5 rounded ms-5 me-2 " id="form"  ><br>
+<div class="container-fluid mt-5 rounded ms-5 me-5 " id="form"  ><br>
 <div class="d-flex justify-content-end">
 
 
